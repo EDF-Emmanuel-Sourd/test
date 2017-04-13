@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="./ant2html.xsl"?>
+
+<project name="test" default="test">
+
+	<target name="test" description="simple output">
+		<echo message="test simple echo output to log, from basedir ${basedir}" />
+	</target>
+
+	<target name="test-error" description="error output">
+		<fail message="test simple echo output to log" />
+	</target>
+
+	<target name="test-java-noargs" description="java program output">
+		<java classname="fr.edf.soa.commons.ant.JavaMain" fork="false" spawn="false" dir="${basedir}" maxmemory="64m">
+		</java>
+	</target>
+
+	<target name="test-java" description="java program output">
+		<java classname="fr.edf.soa.commons.ant.JavaMain" fork="false" spawn="false" dir="${basedir}" maxmemory="64m">
+			<arg value="success" />
+		</java>
+	</target>
+
+	<target name="test-java-failure" description="java program output">
+		<java classname="fr.edf.soa.commons.ant.JavaMain" fork="false" spawn="false" dir="${basedir}" maxmemory="64m">
+			<arg value="failure" />
+		</java>
+	</target>
+
+	<target name="test-java-fork" description="java program output">
+		<java classname="fr.edf.soa.commons.ant.JavaMain" fork="true" spawn="false" dir="${basedir}" maxmemory="64m">
+			<arg value="success" />
+			<classpath>
+				<pathelement location="${basedir}/target/test-classes" />
+			</classpath>
+		</java>
+	</target>
+
+	<target name="test-java-fork-failure" description="java program output">
+		<java classname="fr.edf.soa.commons.ant.JavaMain" fork="true" spawn="false" dir="${basedir}" maxmemory="64m">
+			<arg value="failure" />
+			<classpath>
+				<pathelement location="${basedir}/target/test-classes" />
+			</classpath>
+		</java>
+	</target>
+
+	<target name="test-java-spawn" description="java program output">
+		<java classname="fr.edf.soa.commons.ant.JavaMain" fork="true" spawn="false" dir="${basedir}" maxmemory="64m">
+			<arg value="success" />
+			<classpath>
+				<pathelement location="${basedir}/target/test-classes" />
+			</classpath>
+		</java>
+	</target>
+
+	<target name="test-java-spawn-failure" description="java program output">
+		<java classname="fr.edf.soa.commons.ant.JavaMain" fork="true" spawn="false" dir="${basedir}" maxmemory="64m">
+			<arg value="failure" />
+			<classpath>
+				<pathelement location="${basedir}/target/test-classes" />
+			</classpath>
+		</java>
+	</target>
+</project>
