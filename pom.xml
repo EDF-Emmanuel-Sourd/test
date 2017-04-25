@@ -10,7 +10,7 @@
 	<groupId>fr.edf.soa.commons</groupId>
 	<artifactId>commons-ant</artifactId>
 	<packaging>jar</packaging>
-	<version>0.0.1</version>
+	<version>0.0.2-SNAPSHOT</version>
 
 	<name>Commons Ant</name>
 	<description>Commons and helpers for Ant</description>
