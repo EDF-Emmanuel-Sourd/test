@@ -16,7 +16,7 @@
 
 package fr.edf.soa.commons.ant;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * PathMatcher implementation for Ant-style path patterns. Examples are provided
