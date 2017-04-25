@@ -10,10 +10,16 @@
 	<groupId>fr.edf.soa.commons</groupId>
 	<artifactId>commons-ant</artifactId>
 	<packaging>jar</packaging>
-	<version>0.0.1</version>
+	<version>1.0.0-SNAPSHOT</version>
 
 	<name>Commons Ant</name>
 	<description>Commons and helpers for Ant</description>
+
+	<scm>
+		<connection>scm:svn:https://si-svn-forge.edf.fr/svn/soa/commons/ant/trunk</connection>
+		<developerConnection>scm:svn:https://si-svn-forge.edf.fr/svn/soa/commons/ant/trunk</developerConnection>
+		<url>https://si-svn-forge.edf.fr/svn/soa/commons/ant/trunk</url>
+	</scm>
 
 	<build>
 		<resources>
