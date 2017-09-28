@@ -33,6 +33,7 @@
 		<priority value="debug" />
 		<appender-ref ref="STDOUT" />
 		<appender-ref ref="STDERR" />
+		<appender-ref ref="FILE" />
 	</root>
 
 </log4j:configuration>

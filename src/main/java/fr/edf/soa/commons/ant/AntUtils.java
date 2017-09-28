@@ -7,10 +7,10 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.Properties;
 
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.apache.tools.ant.BuildException;
 import org.apache.tools.ant.DefaultLogger;
-import org.apache.tools.ant.DemuxOutputStream;
 import org.apache.tools.ant.Project;
 import org.apache.tools.ant.ProjectHelper;
 
@@ -135,16 +135,16 @@ public class AntUtils {
 
 	private static void configureListener(Project p) {
 		DefaultLogger consoleLogger = new DefaultLogger();
-		consoleLogger.setErrorPrintStream(System.err);
-		consoleLogger.setOutputPrintStream(System.out);
+		consoleLogger.setErrorPrintStream(new PrintStream(
+				new LoggingOutputStream(log, Level.ERROR)));
+		consoleLogger.setOutputPrintStream(new PrintStream(
+				new LoggingOutputStream(log, Level.DEBUG)));
 		if (log.isTraceEnabled())
 			consoleLogger.setMessageOutputLevel(Project.MSG_DEBUG);
 		else if (log.isDebugEnabled())
 			consoleLogger.setMessageOutputLevel(Project.MSG_VERBOSE);
 		else
 			consoleLogger.setMessageOutputLevel(Project.MSG_INFO);
-		System.setOut(new PrintStream(new DemuxOutputStream(p, false)));
-		System.setErr(new PrintStream(new DemuxOutputStream(p, true)));
 		p.addBuildListener(consoleLogger);
 	}
 }
